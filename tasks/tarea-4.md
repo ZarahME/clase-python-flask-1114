@@ -127,9 +127,14 @@ En HTML:
 
 ## Preguntas de reflexion
 
-1. Si tienes 50 tareas en la lista, ¿cuantas lineas de HTML necesitas escribir?
-2. ¿Que pasa si accedes a una propiedad que no existe, como `{{ tarea.profesor }}`?
-3. ¿Como cambarias el bucle si quisieras mostrar solo las primeras 5 tareas?
+1. Si tienes 50 tareas en la lista, ¿cuántas líneas de HTML necesitas escribir?
+Con un bucle Jinja2 no necesitas escribir una línea de HTML por cada tarea; basta con unas pocas líneas de plantilla (por ejemplo, un bloque {% for tarea in tareas %} y el HTML de una tarjeta o fila) y el motor lo repetirá automáticamente 50 veces, generando el HTML final sin que tú escribas 50 bloques manualmente.
+
+2. ¿Qué pasa si accedes a una propiedad que no existe, como {{ tarea.profesor }}?
+Si tarea no tiene una propiedad profesor, Jinja2 normalmente la trata como algo “no definido” y puede mostrar None o un valor vacío (dependiendo de la configuración), pero no detiene el renderizado; en muchos casos, simplemente se muestra nada o se genera un error silencioso si no se maneja la ausencia del campo.
+
+3. ¿Cómo cambiarías el bucle si quisieras mostrar solo las primeras 5 tareas?
+Para mostrar solo las primeras 5 tareas puedes usar una porción de la lista en el bucle: {% for tarea in tareas[0:5] %} o, si usas un filtro de índice, algo como {% for tarea in tareas if loop.index <= 5 %}, y luego cierras el bloque con {% endfor %}; así el bucle solo itera sobre las primeras 5 tareas aunque la lista tenga más.
 
 ## Entregable
 

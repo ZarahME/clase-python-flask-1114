@@ -130,11 +130,17 @@ Edad: 25
 
 ## Preguntas de reflexion
 
-1. ¿Cual es la diferencia entre escribir datos en HTML vs guardarlos en variables Python?
-2. Si el profesor cambia mañana, ¿cuantos archivos necesitas editar con este enfoque?
-3. ¿Que ventaja tiene usar `{{ }}` en lugar de escribir texto fijo?
-4. ¿Donde se ejecuta Jinja2: en la computadora del usuario o en el servidor?
+1. ¿Cuál es la diferencia entre escribir datos en HTML vs guardarlos en variables Python?
+Escribir datos directamente en HTML los deja fijos y repetidos en el archivo, de modo que si cambia, por ejemplo, el nombre del profesor, debes buscar y editar cada lugar donde aparece ese texto. En cambio, guardar esos datos en variables Python permite que el valor se defina una sola vez en el código de Python y luego se inyecte en el HTML usando Jinja2; así, el mismo dato puede aparecer en varias plantillas y se actualiza en todas si cambias solo la variable, haciendo el sistema mucho más flexible y fácil de mantener.
 
+2. Si el profesor cambia mañana, ¿cuántos archivos necesitas editar con este enfoque?
+Si usas variables Python y plantillas Jinja2, normalmente solo necesitas editar un archivo Python (por ejemplo app.py o un archivo de configuración) donde está definido el nombre del profesor, y posiblemente un segundo archivo si el dato también vive en un archivo de configuración o base de datos. No necesitas modificar ningún archivo HTML, porque el valor se pasa a la plantilla desde el servidor y se renderiza automáticamente en todas las páginas que usan esa variable.
+
+3. ¿Qué ventaja tiene usar {{ }} en lugar de escribir texto fijo?
+Usar {{ }} en Jinja2 permite que el texto dentro de la plantilla sea dinámico y dependa de variables o funciones de Python, en lugar de ser siempre el mismo. Esto hace que el mismo HTML sirva para mostrar contenidos diferentes según el contexto (por ejemplo, distintos profesores, cursos o usuarios), y facilita mucho el mantenimiento porque cualquier cambio de dato se hace en el código Python, no tocando repetidamente el HTML.
+
+4. ¿Dónde se ejecuta Jinja2: en la computadora del usuario o en el servidor?
+Jinja2 se ejecuta en el servidor, no en la computadora del usuario. Cuando el navegador solicita una página, el servidor con Python (por ejemplo Flask) toma la plantilla, procesa las expresiones {{ }} y {% %} y genera el HTML final; luego envía solo ese HTML ya renderizado al navegador, que lo muestra sin saber nada de Jinja2 ni de las variables que usó.
 ## Entregable
 
 Debes mostrar:

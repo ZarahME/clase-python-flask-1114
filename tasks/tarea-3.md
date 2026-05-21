@@ -204,10 +204,17 @@ def nombre_funcion():  # Que ocurre
 
 ## Preguntas de reflexion
 
-1. Si tienes 10 paginas diferentes, ¿cuantas funciones necesitas en app.py?
-2. ¿Que pasa si cambias el nombre de una ruta pero no actualizas los links?
-3. ¿Por que es importante tener un menu consistente en todas las paginas?
 
+
+
+1. Si tienes 10 páginas diferentes, ¿cuántas funciones necesitas en app.py?
+En general, necesitas una función por ruta, es decir, una función decorada con @app.route(...) por cada página distinta que quieras mostrar, así que para 10 páginas distintas normalmente crearás 10 funciones en app.py (cada una renderizando su propia plantilla).
+
+2. ¿Qué pasa si cambias el nombre de una ruta pero no actualizas los links?
+Si cambias la ruta en Flask (por ejemplo, /vista1 a /pagina1) y no actualizas los enlaces en las plantillas, esos links seguirán apuntando a la ruta antigua y darán error 404 cuando el usuario haga clic, porque el servidor ya no tiene una función asociada a ese nombre de ruta.
+
+3. ¿Por qué es importante tener un menú consistente en todas las páginas?
+Un menú consistente ayuda al usuario a orientarse, porque siempre sabe dónde volver sin importa en qué página esté, y refuerza la identidad visual del sitio haciendo que todas las páginas se sientan parte del mismo sistema.
 ## Entregable
 
 Debes mostrar:
