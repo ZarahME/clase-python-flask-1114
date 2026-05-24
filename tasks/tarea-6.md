@@ -233,8 +233,17 @@ uno = Estudiante.query.filter_by(nombre="Ana").first()  # Un resultado
 ## Preguntas de reflexion
 
 1. ¿Que es un ORM y por que simplifica trabajar con bases de datos?
+Un ORM (Object-Relational Mapping) es una herramienta que conecta tu código orientado a objetos con una base de datos relacional, traduciendo automáticamente operaciones con objetos (crear, leer, actualizar, borrar) a consultas SQL y convirtiendo las filas de la base de datos en objetos que puedes manipular en tu lenguaje de programación.
+
 2. ¿Que diferencia hay entre `db.session.add()` y `db.session.commit()`?
+
+
+La diferencia entre db.session.add() y db.session.commit() es que db.session.add(obj) solo agrega un objeto a la sesión marcándolo para ser insertado o actualizado en la base de datos, pero no guarda permanentemente los cambios; preparation los cambios en la sesión mientras que db.session.commit() confirma y guarda permanentemente todos los cambios pendientes de la sesión en la base de datos, finalizando la transacción, sin lo cual los cambios se descartan al terminar la solicitud.
+
+
 3. ¿Por que `unique=True` es importante en el email?
+unique=True es importante en el email porque crea una restricción de unicidad en la columna que asegura que ningún email se repita en la tabla, lo cual es crucial porque el email suele ser el identificador único de un usuario; sin esta restricción podrían existir varias cuentas con el mismo correo, lo que rompería la lógica de autenticación, notificaciones y recuperación de contraseñas, además de permitir usar el email de forma segura para buscar usuarios sin ambigüedades.
+
 
 ## Entregable
 

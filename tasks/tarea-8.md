@@ -311,8 +311,12 @@ if session['rol'] != 'profesor':
 ## Preguntas de reflexion
 
 1. ¿Que diferencia hay entre Create, Read, Update, Delete?
+Create (crear) agrega un registro nuevo a la base de datos; Read (leer) consulta y obtiene registros existentes; Update (actualizar) modifica datos de un registro ya guardado; Delete (borrar) elimina un registro de la base de datos.
 2. ¿Por que es importante tener ForeignKey entre Tarea y Usuario?
+La ForeignKey entre Tarea y Usuario es importante porque establece la relación uno-a-muchos (un usuario tiene muchas tareas), asegura integridad referencial (una tarea siempre pertenece a un usuario existente), y permite consultas eficientes como "obtener todas las tareas del usuario actual" o "borrar todas las tareas al eliminar un usuario".
 3. ¿Como protegearias la ruta de crear tarea para que solo profesor pueda?
+Protegería la ruta de crear tarea con @login_required para asegurar que el usuario está autenticado, y luego verificaría que current_user.role == 'profesor', o usaría un decorador personalizado @role_required('profesor') que llame a abort(403) si el usuario no es profesor.
+
 
 ## Entregable
 

@@ -305,8 +305,16 @@ if 'usuario_id' not in session:
 ## Preguntas de reflexion
 
 1. ¿Por que nunca debes guardar contraseñas en texto plano?
+Es porque roban tu base de datos, el atacante obtiene todas las contraseñas inmediatamente y puede entrar a tus cuentas y a otras donde el usuario las reutilice; usar hash con sal (como bcrypt) las hace irreversibles y mucho más seguras.
+
 2. ¿Que diferencia hay entre crear un Usuario y loguear?
+
+Crear usuario es registrar una cuenta nueva y guardar su contraseña hasheada; loguearse es verificar que email y contraseña coinciden con los guardados y crear una sesión para mantener al usuario identificado sin volver a pedir credenciales.
+
 3. ¿Como protegeria la ruta `/estudiantes` para que solo profesor pueda verla?
+
+Protege /estudiantes con @login_required y verifica que current_user.role == 'profesor'.
+
 
 ## Entregable
 
