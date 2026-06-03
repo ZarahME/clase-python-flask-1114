@@ -1,41 +1,36 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Portal Clase 1114 - Python y Flask</title>
-  </head>
-  <body>
-    <!--
-      Esta pagina es muy simple a proposito.
-      La idea es que el alumno pueda leerla sin perderse.
-    -->
+<head>
+    <meta charset="UTF-8">
+    <title>Informacion - Portal Clase 1114 de sara </title>
+</head>
+<body>
+    <!-- MENU -->
+    <nav>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/informacion">Informacion</a></li>
+            <li><a href="/recursos">Recursos</a></li>
+            <li><a href="/tareas">Tareas</a></li>
+        </ul>
+    </nav>
 
-    <h1>
+    <h1>Informacion de la Clase</h1>
+    <p><strong>Aula:</strong> {{ aula }}</p>
+    <p><strong>Profesor:</strong> {{ profesor }}</p>
+    <p><strong>Horario:</strong> {{ horario }}</p>
 
-      Bienvenidos al Portal de Clase 1114 de Sara
-    </h1>
+<br>
+     <p>Nombre: {{ nombre }}</p>
+<p>Edad: {{ edad }}</p>
 
-    <p>Profesor: Henry Ortegon</p>
-    <p>Horario: Miercoles 16:45-18:10 | Jueves 12:30-14:20</p>
-    <p>
-      Si estas viendo esto, ya diste un primer paso en programacion: tu
-      aplicacion esta corriendo y Flask pudo mostrar una pagina HTML.
-    </p>
-
-    <p>
-      Hoy empezamos simple, pero con una idea poderosa: cada gran programa
-      arranca con una primera linea de codigo. Este puede ser el comienzo de
-      algo enorme.
-    </p>
-
-    <hr />
-
-    <p>Primer objetivo cumplido: crear el entorno y levantar el servidor.</p>
-
-    <p>
-      Ahora este proyecto empieza a convertirse en un Mini Portal de Clase
-      Flask. En la tarea 3 vas a crear nuevas paginas y conectarlas con rutas.
-    </p>
-  </body>
+    <h2>Objetivos</h2>
+    <ul>
+        <!-- Aqui va el bucle for (Tarea 4) -->
+    </ul>
+</body>
 </html>
